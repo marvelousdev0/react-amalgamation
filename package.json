@@ -3,7 +3,7 @@
 	"version": "0.0.0",
 	"scripts": {
 		"format": "prettier '*/**/*.{js,ts,tsx}' --quiet --fix'",
-		"format:fix": "prettier --write '*/**/*.{js,ts,tsx}' --quiet --fix",
+		"format:fix": "prettier --write '*/**/*.{js,ts,tsx}'",
 		"lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
 		"lint:fix": "eslint --fix '*/**/*.{js,ts,tsx}' --quiet --fix",
 		"dev": "vite",
@@ -33,5 +33,11 @@
 		"prettier": "^2.3.2",
 		"typescript": "^4.3.2",
 		"vite": "^2.4.4"
+	},
+	"lint-staged": {
+		"src/**/*.{ts,tsx,js,jsx,css,html,json,md}": [
+			"npm run lint:fix",
+			"npm run format:fix"
+		]
 	}
 }
