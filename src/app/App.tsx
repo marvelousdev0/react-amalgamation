@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { useRecoilState } from 'recoil'
+import { count } from './state/atoms'
 import logo from './logo.svg'
-import './App.css'
+import './App.scss'
 
 function App() {
-	const [count, setCount] = useState(0)
+	const [countState, setCount] = useRecoilState(count)
 
 	return (
 		<div className='App'>
@@ -11,8 +13,11 @@ function App() {
 				<img src={logo} className='App-logo' alt='logo' />
 				<p>Hello Vite + React!</p>
 				<p>
-					<button type='button' onClick={() => setCount(count => count + 1)}>
-						count is: {count}
+					<button
+						type='button'
+						onClick={() => setCount(countState => countState + 1)}
+					>
+						count is: {countState}
 					</button>
 				</p>
 				<p>
